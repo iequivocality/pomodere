@@ -1,10 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
 
-function render() {
-  ReactDOM.render(<h1 className="text-3xl font-bold underline">
-  Hello world!
-</h1>, document.body);
-}
+const App = () => {
+  return <h1 className="text-3xl font- underline">Hello world!</h1>;
+};
 
-render();
+export default App;
