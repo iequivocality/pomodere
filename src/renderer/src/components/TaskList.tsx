@@ -8,11 +8,14 @@ export interface TaskListProps {
 export const TaskList: FC<TaskListProps> = (props) => {
   const { tasks } = props
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className="flex h-full w-full flex-col px-3">
+      <div className='mt-8 mb-2 font-bold dark:text-gray-300 text-2xl'>
+        TASK LIST
+      </div>
       {tasks.map((task) => (
         <div
           key={task.id}
-          className="my-2 ml-2 h-16 w-full overflow-hidden rounded-md bg-slate-800 px-4 py-2 font-semibold uppercase text-slate-100"
+          className="truncate my-2 h-16 w-full rounded-md bg-slate-800 px-3 py-3 font-semibold text-slate-100"
         >
           {task.description}
         </div>

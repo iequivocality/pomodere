@@ -14,7 +14,7 @@ const tasks: PomoTask[] = [
     dateFinished: new Date().toISOString()
   },
   {
-    id: 1,
+    id: 2,
     description: 'Task list UI',
     dateCreated: new Date().toISOString(),
     dateFinished: new Date().toISOString()
@@ -36,7 +36,7 @@ function App(): JSX.Element {
   }
 
   const menuClass = clsx(
-    'transition-basis transition-300 flex flex-col basis-0 items-center relative overflow-hidden',
+    'transition-basis transition-300 flex flex-col basis-0 items-center relative overflow-hidden dark:bg-gray-900',
     {
       'basis-1/3': appState === AppState.MENU_OPEN
     }
@@ -49,7 +49,7 @@ function App(): JSX.Element {
   )
 
   return (
-    <div className="flex h-screen w-screen justify-center dark:bg-gray-900">
+    <div className="flex h-screen w-screen justify-center dark:bg-gray-800">
       <div className={menuClass}>
         <TaskList tasks={tasks} />
       </div>
