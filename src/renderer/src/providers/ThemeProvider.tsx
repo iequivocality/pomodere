@@ -2,14 +2,14 @@ import { createContext, FC, useState, type ReactNode } from 'react'
 
 export type Theme = 'light' | 'dark'
 
-export type ThemeContextType = {
+export interface ThemeContextType {
   scheme: Theme
   changeScheme: (scheme: Theme) => void
 }
 
 export const ThemeContext = createContext<ThemeContextType>({
   scheme: 'light',
-  changeScheme: (_: Theme) => {}
+  changeScheme: () => {}
 })
 
 interface ThemeProviderProps {

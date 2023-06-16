@@ -1,13 +1,17 @@
 import { FC, useState } from 'react'
 import { CountdownControl } from './CountdownControl'
-import { CountdownState } from '@defs/index'
+import { CountdownState, PomodoroTimerType } from '@defs/index'
 import { useInterval } from '@renderer/hooks/useInterval'
 
 const TWENTY_FIVE_MINUTES = 1500
+const FIVE_MINUTES = 300
 
 export const Countdown: FC = () => {
   const [countdownState, setCountdownState] = useState<CountdownState>(
     CountdownState.DEFAULT
+  )
+  const [timerState, setTimerState] = useState<PomodoroTimerType>(
+    PomodoroTimerType.WORK
   )
   const [seconds, setSeconds] = useState<number>(TWENTY_FIVE_MINUTES)
 
@@ -15,6 +19,14 @@ export const Countdown: FC = () => {
     () => {
       if (seconds > 0) {
         setSeconds(seconds - 1)
+      } else {
+        if (timerState === PomodoroTimerType.WORK) {
+          setTimerState(PomodoroTimerType.BREAK)
+          setSeconds(TWENTY_FIVE_MINUTES)
+        } else if (timerState === PomodoroTimerType.BREAK) {
+          setTimerState(PomodoroTimerType.WORK)
+          setSeconds(FIVE_MINUTES)
+        }
       }
     },
     countdownState === CountdownState.PLAYING ? 1000 : null

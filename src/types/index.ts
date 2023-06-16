@@ -1,5 +1,5 @@
 export interface PomoTask {
-  id: number
+  id: string
   description: string
   dateCreated: string
   dateFinished: string
@@ -11,7 +11,7 @@ export enum CountdownState {
   DEFAULT
 }
 
-export enum PomodoroState {
+export enum PomodoroTimerType {
   WORK,
   BREAK
 }
